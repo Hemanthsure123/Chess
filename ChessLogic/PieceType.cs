@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ChessLogic
 {
-    internal class PieceType
+    public enum PieceType
     {
+        Pawn,
+        Bishop,
+        Knight,
+        Rook,
+        Queen,
+        King
     }
 }

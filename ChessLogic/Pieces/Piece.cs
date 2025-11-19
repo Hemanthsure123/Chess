@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChessLogic.Pieces
+namespace ChessLogic
 {
-    internal class Piece
+    public abstract class Piece
     {
+        public abstract PieceType Type { get; }
+        public abstract Player Color { get; }
+
+        public bool HasMoved { get; set; } = false;
+
+        public abstract Piece Copy();
     }
 }
