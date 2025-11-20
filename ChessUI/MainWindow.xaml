@@ -10,7 +10,7 @@
          WindowStartupLocation="CenterScreen"
          Background="#101010">
     <Viewbox>
-        <Grid x:Name="BoardGrid" Width="600" Height="600">
+        <Grid x:Name="BoardGrid" Width="600" Height="600" MouseDown="BoardGrid_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="600"/>
                 <ColumnDefinition Width="16*"/>
@@ -18,10 +18,16 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Assets/Board.png"/>
             </Grid.Background>
+            <UniformGrid x:Name="HighlightGrid"
+                         Rows="8"
+                         Columns="8">
+                
+                
+            </UniformGrid>
             <UniformGrid x:Name="PieceGrid"
              Rows="8"
-             Columns="8">
-
+             Columns="8"
+             RenderOptions.BitmapScalingMode="HighQuality">
             </UniformGrid>
         </Grid>
         

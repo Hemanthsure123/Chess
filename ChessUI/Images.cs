@@ -26,7 +26,7 @@ namespace ChessUI
         public static readonly Dictionary<PieceType, ImageSource> blackSources = new()
         {
             {PieceType.Pawn, LoadImage("Assets/PawnB.png") },
-            {PieceType.Bishop, LoadImage("Assets/BishopB.png") },
+            {PieceType.Bishop, LoadImage("Assets/BishopW.png") },
             {PieceType.Knight, LoadImage("Assets/KnightB.png") },
             {PieceType.Rook, LoadImage("Assets/RookB.png") },
             {PieceType.Queen, LoadImage("Assets/QueenB.png") },
