@@ -1,11 +1,21 @@
 ﻿using ChessLogic;
 using ChessLogic.Moves;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Shapes;
+using Microsoft.Maui.Graphics;
+using System.Collections.Generic;
+using System.Linq;
+using UIKit;
+// 2. Force "GameState" to mean your Chess Logic, not Android's system state
+using GameState = ChessLogic.GameState;
+// --- FIXES FOR AMBIGUITY ---
+// 1. Force "Image" to mean the UI control, not the System text type
+using Image = Microsoft.Maui.Controls.Image;
 
 namespace ChessMobile
 {
     public partial class MainPage : ContentPage
     {
-        // 1. Keep your existing variables
         private readonly Image[,] pieceImages = new Image[8, 8];
         private readonly Microsoft.Maui.Controls.Shapes.Rectangle[,] highlights = new Microsoft.Maui.Controls.Shapes.Rectangle[8, 8];
         private readonly Dictionary<Position, Move> moveCache = new Dictionary<Position, Move>();
@@ -18,26 +28,29 @@ namespace ChessMobile
             InitializeComponent();
             InitializeBoard();
 
-            // Initialize Logic
             gameState = new GameState(Player.White, Board.Initial());
             DrawBoard(gameState.Board);
         }
 
-        // 2. Adapted Initialization
-        // In WPF you added children manually. In MAUI, we do the same but add Tap Gestures here.
         private void InitializeBoard()
         {
+            // If BoardGrid is red (missing), ensure you updated MainPage.xaml in the previous step!
+            BoardGrid.Children.Clear();
+
             for (int r = 0; r < 8; r++)
             {
                 for (int c = 0; c < 8; c++)
                 {
-                    // Create Image for the Piece
-                    Image image = new Image();
+                    // 1. Create Image
+                    Image image = new Image
+                    {
+                        Aspect = Aspect.AspectFit,
+                        InputTransparent = true
+                    };
                     pieceImages[r, c] = image;
-                    // Add to Grid (row, col)
                     BoardGrid.Add(image, c, r);
 
-                    // Create Rectangle for Highlight
+                    // 2. Create Highlight
                     var highlight = new Microsoft.Maui.Controls.Shapes.Rectangle
                     {
                         Fill = Colors.Transparent,
@@ -46,20 +59,17 @@ namespace ChessMobile
                     highlights[r, c] = highlight;
                     BoardGrid.Add(highlight, c, r);
 
-                    // 3. NEW: Handle Touch Input
-                    // Instead of calculating X/Y pixels like in WPF, we attach a listener to the square directly.
+                    // 3. Add Tap Gesture
                     var tapGesture = new TapGestureRecognizer();
                     int capturedRow = r;
                     int capturedCol = c;
                     tapGesture.Tapped += (s, e) => OnSquareTapped(capturedRow, capturedCol);
 
-                    // Attach gesture to the highlight rectangle (it sits on top)
                     highlight.GestureRecognizers.Add(tapGesture);
                 }
             }
         }
 
-        // 4. Adapted DrawBoard (Simpler Image Loading)
         private void DrawBoard(Board board)
         {
             for (int r = 0; r < 8; r++)
@@ -67,24 +77,22 @@ namespace ChessMobile
                 for (int c = 0; c < 8; c++)
                 {
                     Piece piece = board[r, c];
-                    // MAUI loads directly from filename string
                     pieceImages[r, c].Source = GetImageSource(piece);
                 }
             }
         }
 
-        // Helper to get image filename string
         private string GetImageSource(Piece piece)
         {
             if (piece == null) return null;
 
-            // Mapping logic from your Images.cs
-            string color = piece.Color == Player.White ? "W" : "B";
-            string type = piece.Type.ToString();
-            return $"{type}{color}.png"; // e.g., "PawnW.png"
+            // Files must be lowercase in Resources/Images (e.g., "pawnw.png")
+            string color = piece.Color == Player.White ? "w" : "b";
+            string type = piece.Type.ToString().ToLower();
+
+            return $"{type}{color}.png";
         }
 
-        // 5. Logic Flow (Copied from your MainWindow.cs)
         private void OnSquareTapped(int row, int col)
         {
             Position pos = new Position(row, col);
@@ -125,7 +133,6 @@ namespace ChessMobile
         {
             gameState.MakeMove(move);
             DrawBoard(gameState.Board);
-            // Mobile doesn't have a mouse cursor, so we skip SetCursor logic
         }
 
         private void CacheMoves(IEnumerable<Move> moves)
@@ -141,7 +148,7 @@ namespace ChessMobile
         {
             foreach (Position to in moveCache.Keys)
             {
-                highlights[to.Row, to.Column].Fill = Colors.Green; // Simple green highlight
+                highlights[to.Row, to.Column].Fill = Colors.LightGreen;
             }
         }
 
