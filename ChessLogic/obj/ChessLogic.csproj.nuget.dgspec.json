@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NXTWAVE\\source\\repos\\Chess\\ChessLogic\\ChessLogic.csproj": {}
+    "C:\\Users\\NXTWAVE\\Downloads\\Chess\\ChessLogic\\ChessLogic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NXTWAVE\\source\\repos\\Chess\\ChessLogic\\ChessLogic.csproj": {
+    "C:\\Users\\NXTWAVE\\Downloads\\Chess\\ChessLogic\\ChessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NXTWAVE\\source\\repos\\Chess\\ChessLogic\\ChessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\NXTWAVE\\Downloads\\Chess\\ChessLogic\\ChessLogic.csproj",
         "projectName": "ChessLogic",
-        "projectPath": "C:\\Users\\NXTWAVE\\source\\repos\\Chess\\ChessLogic\\ChessLogic.csproj",
+        "projectPath": "C:\\Users\\NXTWAVE\\Downloads\\Chess\\ChessLogic\\ChessLogic.csproj",
         "packagesPath": "C:\\Users\\NXTWAVE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NXTWAVE\\source\\repos\\Chess\\ChessLogic\\obj\\",
+        "outputPath": "C:\\Users\\NXTWAVE\\Downloads\\Chess\\ChessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
