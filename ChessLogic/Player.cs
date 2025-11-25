@@ -23,6 +23,6 @@ namespace ChessLogic
                 Player.Black => Player.White,
                 _ => Player.None,
             };
-        }
+        } 
     }
 } 

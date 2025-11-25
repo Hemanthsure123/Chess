@@ -1,0 +1,12 @@
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\bin\Debug\net9.0\ChessLogic.deps.json
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\bin\Debug\net9.0\ChessLogic.dll
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\bin\Debug\net9.0\ChessLogic.pdb
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.AssemblyInfoInputs.cache
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.AssemblyInfo.cs
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.csproj.CoreCompileInputs.cache
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.sourcelink.json
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.dll
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\refint\ChessLogic.dll
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ChessLogic.pdb
+C:\Users\NXTWAVE\Downloads\Chess\ChessLogic\obj\Debug\net9.0\ref\ChessLogic.dll

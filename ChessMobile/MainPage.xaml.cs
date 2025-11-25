@@ -1,15 +1,13 @@
-﻿using ChessLogic;
-using ChessLogic.Moves;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Shapes;
-using Microsoft.Maui.Graphics;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using UIKit;
-// 2. Force "GameState" to mean your Chess Logic, not Android's system state
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Shapes;
+using ChessLogic;
+using ChessLogic.Moves;
+
+// Explicitly map types to avoid conflicts
 using GameState = ChessLogic.GameState;
-// --- FIXES FOR AMBIGUITY ---
-// 1. Force "Image" to mean the UI control, not the System text type
 using Image = Microsoft.Maui.Controls.Image;
 
 namespace ChessMobile
@@ -34,23 +32,22 @@ namespace ChessMobile
 
         private void InitializeBoard()
         {
-            // If BoardGrid is red (missing), ensure you updated MainPage.xaml in the previous step!
             BoardGrid.Children.Clear();
 
             for (int r = 0; r < 8; r++)
             {
                 for (int c = 0; c < 8; c++)
                 {
-                    // 1. Create Image
+                    // 1. Piece Image
                     Image image = new Image
                     {
                         Aspect = Aspect.AspectFit,
-                        InputTransparent = true
+                        InputTransparent = true // Clicks go through to the highlight/grid
                     };
                     pieceImages[r, c] = image;
                     BoardGrid.Add(image, c, r);
 
-                    // 2. Create Highlight
+                    // 2. Highlight Rectangle & Tap Area
                     var highlight = new Microsoft.Maui.Controls.Shapes.Rectangle
                     {
                         Fill = Colors.Transparent,
@@ -59,7 +56,7 @@ namespace ChessMobile
                     highlights[r, c] = highlight;
                     BoardGrid.Add(highlight, c, r);
 
-                    // 3. Add Tap Gesture
+                    // 3. Tap Gesture
                     var tapGesture = new TapGestureRecognizer();
                     int capturedRow = r;
                     int capturedCol = c;
@@ -86,7 +83,7 @@ namespace ChessMobile
         {
             if (piece == null) return null;
 
-            // Files must be lowercase in Resources/Images (e.g., "pawnw.png")
+            // Generates filenames like "pawnw.png"
             string color = piece.Color == Player.White ? "w" : "b";
             string type = piece.Type.ToString().ToLower();
 

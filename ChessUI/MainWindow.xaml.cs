@@ -10,6 +10,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ChessLogic;
 using ChessLogic.Moves;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ChessUI
 {

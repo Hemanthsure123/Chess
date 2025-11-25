@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChessMobile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4a6d11cbefd61b76528d14001c18463b2a7f795a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+44da9f401f1bf1135befe57c171eec3994e54662")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChessMobile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChessMobile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

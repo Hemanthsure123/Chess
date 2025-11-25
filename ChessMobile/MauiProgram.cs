@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+#if DEBUG
+using Microsoft.Extensions.Logging.Debug;
+#endif
 
 namespace ChessMobile
 {
@@ -16,7 +19,7 @@ namespace ChessMobile
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace ChessMobile
+﻿namespace ChessMobile
 {
     public partial class App : Application
     {
